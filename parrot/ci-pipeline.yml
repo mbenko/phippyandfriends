@@ -7,13 +7,19 @@ trigger:
     include: 
     - parrot/
     - common/ci-steps-template.yml
-    
+
 pr: none
 
 pool:
   vmImage: ubuntu-latest
 
 variables:
+- name: registryLogin
+  value: 02ba2d71-6c04-4c68-a250-16c55f9bc385
+- name: registryName
+  value: bnkAcr
+- name: registryPassword
+  value: 9a6bea27-462d-4cf6-b177-83a7364036a9
 - template: ../common/ci-vars-template.yml
   parameters:
       projectName: parrot
