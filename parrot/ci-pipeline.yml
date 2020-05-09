@@ -14,7 +14,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-- group: myPHippy-demo
+- group: myPhippy-demo
 - template: ../common/ci-vars-template.yml
   parameters:
       projectName: parrot
