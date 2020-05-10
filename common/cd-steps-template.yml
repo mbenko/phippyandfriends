@@ -7,7 +7,7 @@ steps:
 - download: ci-pipeline
   artifact: build-artifact
 - bash: |
-   echo "--> az login -u $(aksSpId) --tenant $(aksSpTenantId)"
+   echo "--> az login -u $(aksSpId)"
    az login \
         --service-principal \
         -u $(aksSpId) \
