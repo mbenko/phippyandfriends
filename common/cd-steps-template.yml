@@ -13,6 +13,7 @@ steps:
         -u $(aksSpId) \
         -p $(aksSpSecret) \
         --tenant $(aksSpTenantId)
+    az account set --subscription $(aksSubscription)
     echo "--> az aks get-credentials -n $(aks) -g $(rg) "
     az aks get-credentials \
         -n $(aks) \
