@@ -2,6 +2,7 @@ trigger: none
 pr: none
 
 variables:
+- group: myYAML-Phippy
 - template: ../common/cd-vars-template.yml
   parameters:
       projectName: captainkube
