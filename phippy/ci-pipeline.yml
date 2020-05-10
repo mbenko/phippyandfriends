@@ -14,6 +14,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
+- group: myYAML-Phippy
 - template: ../common/ci-vars-template.yml
   parameters:
       projectName: phippy
