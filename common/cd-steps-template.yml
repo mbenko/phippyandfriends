@@ -7,13 +7,13 @@ steps:
 - download: ci-pipeline
   artifact: build-artifact
 - bash: |
-   echo "--> az login"
+   echo "--> az login -u $(aksSpId) --tenant $(aksSpTenantId)"
    az login \
         --service-principal \
         -u $(aksSpId) \
         -p $(aksSpSecret) \
         --tenant $(aksSpTenantId)
-    echo "--> az aks get-credentials..."
+    echo "--> az aks get-credentials -n $(aks) -g $(rg) "
     az aks get-credentials \
         -n $(aks) \
         -g $(rg)
