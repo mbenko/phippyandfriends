@@ -7,20 +7,24 @@ steps:
 - download: ci-pipeline
   artifact: build-artifact
 - bash: |
+   echo --> az login
    az login \
         --service-principal \
         -u $(aksSpId) \
         -p $(aksSpSecret) \
         --tenant $(aksSpTenantId)
+    echo --> az aks get-credentials
     az aks get-credentials \
         -n $(aks) \
         -g $(rg)
+    echo --> helm repo add
     helm repo add \
         $(registryName) \
         https://$(registryServerName)/helm/v1/repo \
         --username $(registryLogin) \
         --password $(registryPassword)
     helmChartVersion=$(jq .helmChartVersion $(pipeline.workspace)/ci-pipeline/build-artifact/variables.json -r)
+    echo --> helm upgrade
     helm upgrade \
         --namespace $(k8sNamespace) \
         --create-namespace \
